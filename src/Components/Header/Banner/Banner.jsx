@@ -18,7 +18,7 @@ const Banner = () => {
               <input
                 type='text'
                 placeholder='Search here'
-                className='input input-bordered rounded-e-none w-full max-w-sm'
+                className='input input-bordered rounded-e-none md:w-full md:max-w-sm'
               />
               <button className='bg-red-500 hover:bg-red-600 rounded-s-none text-white font-bold py-3 px-4 rounded-md'>
                 Search
