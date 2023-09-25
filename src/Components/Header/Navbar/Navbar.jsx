@@ -50,9 +50,9 @@ const Navbar = () => {
   );
   return (
     <div className=''>
-      <nav className='flex justify-between items-center py-5 px-4 lg:px-0 container mx-auto'>
+      <nav className='flex justify-between items-center py-5 px-2 md:px-4 lg:px-0 container mx-auto'>
         <NavLogo></NavLogo>
-        <ul className='flex gap-5'>{navItems}</ul>
+        <ul className='flex gap-3 md:gap-5'>{navItems}</ul>
       </nav>
     </div>
   );

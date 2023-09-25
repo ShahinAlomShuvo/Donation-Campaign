@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Donation from "../Pages/Donation/Donation";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import DonationDetails from "../Pages/DonationDetails/DonationDetails";
+import Statistic from "../Pages/Statistic/Statistic";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/donation",
         element: <Donation></Donation>,
+      },
+      {
+        path: "/statistic",
+        element: <Statistic></Statistic>,
       },
       {
         path: "/donationDetails/:id",

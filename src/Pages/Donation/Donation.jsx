@@ -17,19 +17,19 @@ const Donation = () => {
   console.log(showMore);
 
   return (
-    <div className='container mx-auto py-10'>
+    <div className='container mx-auto py-10 px-5 md:px-0'>
       {noData ? (
         <p>{noData}</p>
       ) : (
         <div>
           {showMore ? (
-            <div className='grid grid-cols-2 gap-5'>
+            <div className='grid md:grid-cols-2 gap-5 '>
               {donation.map((data) => (
                 <DonationCard key={data.id} data={data}></DonationCard>
               ))}
             </div>
           ) : (
-            <div className='grid grid-cols-2 gap-5'>
+            <div className='grid md:grid-cols-2 gap-5 '>
               {donation.slice(0, 4).map((data) => (
                 <DonationCard key={data.id} data={data}></DonationCard>
               ))}
@@ -38,10 +38,12 @@ const Donation = () => {
         </div>
       )}
       <div className='text-center py-4'>
-        {donation.length >= 4 && (
+        {donation.length > 4 && (
           <button
             onClick={() => setShowMore(!showMore)}
-            className={`btn capitalize btn-primary ${showMore ? "hidden" : ""}`}
+            className={`btn btn-success border-none text-white capitalize bg-[#009444] ${
+              showMore ? "hidden" : ""
+            }`}
           >
             See all
           </button>
