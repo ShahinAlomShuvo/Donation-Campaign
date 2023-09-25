@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import bannerBg from "../../../assets/Images/bannerbg.jpeg";
-import DonationCard from "../../DonationCards/DonationCard";
-const Banner = ({ donationData }) => {
+const Banner = ({ donationData, handleGetItem }) => {
   const [value, setValue] = useState("");
-  const [categoryData, setCategoryData] = useState([]);
 
   const formHandler = (e) => {
     e.preventDefault();
@@ -11,12 +9,7 @@ const Banner = ({ donationData }) => {
     setValue(searchValue);
   };
 
-  useEffect(() => {
-    const foundCategories = donationData.filter((data) =>
-      data.category.includes(value)
-    );
-    setCategoryData(foundCategories);
-  }, [donationData, value]);
+  handleGetItem(value);
 
   return (
     <div>
@@ -50,7 +43,6 @@ const Banner = ({ donationData }) => {
           </div>
         </div>
       </div>
-      n
     </div>
   );
 };
