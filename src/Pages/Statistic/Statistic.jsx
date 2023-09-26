@@ -2,14 +2,14 @@ import { Pie, Cell, ResponsiveContainer, PieChart } from "recharts";
 import { getStoredDonationData } from "../../Utilities/localstorage";
 
 const Statistic = () => {
-  const myDonation = getStoredDonationData();
-  const myDonationItem = myDonation.length;
+  const yourDonation = getStoredDonationData();
+  const yourDonationItem = yourDonation.length;
 
-  const totalDonationValue = 12 - myDonationItem;
+  const totalDonationValue = 12;
 
   const donationData = [
-    { name: "Total Donations", value: totalDonationValue },
-    { name: "My Donation", value: myDonationItem },
+    { name: "Total Donations", value: totalDonationValue - yourDonationItem },
+    { name: "Your Donation", value: yourDonationItem },
   ];
 
   const COLORS = ["#00C49F", "#FF444A"];
@@ -37,7 +37,7 @@ const Statistic = () => {
         textAnchor={x > cx ? "start" : "end"}
         dominantBaseline='central'
       >
-        {`${(percent * 100).toFixed(0)}% (${donationData[index].value})`}{" "}
+        {`${(percent * 100).toFixed(1)}% (${donationData[index].value})`}
       </text>
     );
   };
@@ -45,14 +45,14 @@ const Statistic = () => {
   return (
     <div>
       <ResponsiveContainer width='100%' height={400}>
-        <PieChart width={900} height={900}>
+        <PieChart width={600} height={600}>
           <Pie
             data={donationData}
             cx='50%'
             cy='50%'
             labelLine={false}
             label={renderCustomizedLabel}
-            outerRadius={120}
+            outerRadius={180}
             fill='#8884d8'
             dataKey='value'
           >
@@ -65,8 +65,22 @@ const Statistic = () => {
           </Pie>
         </PieChart>
       </ResponsiveContainer>
-      <div>
-        <input type='color' name='' id='' />
+      <div className='flex justify-center gap-5'>
+        <div className='flex items-center'>
+          <p className='text-black'>Your Donation:</p>
+          <div
+            className={`w-16 h-3 rounded ml-2`}
+            style={{ backgroundColor: COLORS[1] }}
+          ></div>
+        </div>
+
+        <div className='flex items-center'>
+          <p className='text-black'>Total Donation:</p>
+          <div
+            className={`w-16 h-3 rounded ml-2`}
+            style={{ backgroundColor: COLORS[0] }}
+          ></div>
+        </div>
       </div>
     </div>
   );

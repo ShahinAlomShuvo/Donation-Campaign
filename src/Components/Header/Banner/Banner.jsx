@@ -1,15 +1,17 @@
 import { useState } from "react";
 import bannerBg from "../../../assets/Images/bannerbg.jpeg";
-const Banner = ({ donationData, handleGetItem }) => {
+const Banner = ({ getSearchValue }) => {
   const [value, setValue] = useState("");
 
-  const formHandler = (e) => {
-    e.preventDefault();
-    const searchValue = e.target.category.value;
+  const handleSearchInput = (e) => {
+    const searchValue = e.target.value;
     setValue(searchValue);
   };
 
-  handleGetItem(value);
+  const formHandler = (e) => {
+    e.preventDefault();
+    getSearchValue(value);
+  };
 
   return (
     <div>
@@ -28,9 +30,10 @@ const Banner = ({ donationData, handleGetItem }) => {
             <div>
               <form onSubmit={formHandler}>
                 <input
+                  onChange={handleSearchInput}
                   name='category'
                   type='text'
-                  placeholder='Search here'
+                  placeholder='Search here...'
                   className='input input-bordered text-black rounded-e-none md:w-full md:max-w-sm'
                 />
                 <input

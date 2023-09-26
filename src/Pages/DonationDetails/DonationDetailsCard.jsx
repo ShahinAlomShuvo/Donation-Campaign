@@ -18,8 +18,8 @@ const DonationDetailsCard = ({ donationDetails }) => {
   return (
     <div className='container mx-auto py-10 px-5 lg:px-0'>
       <div className='relative'>
-        <img className='w-full h-[50vh] md:h-[70vh] rounded' src={image} />
-        <div className='bg-black bg-opacity-60 h-20 flex items-center absolute bottom-0 w-full'>
+        <img className='w-full h-[50vh] md:h-[70vh] rounded-xl' src={image} />
+        <div className='bg-black bg-opacity-60 h-20 flex items-center absolute bottom-0 w-full rounded-b-xl'>
           <button
             onClick={donateHandler}
             style={{ backgroundColor: text_btnBg }}

@@ -7,13 +7,13 @@ const Home = () => {
   const donationData = useLoaderData();
 
   const [searchValue, setSearchValue] = useState("");
-  const handleGetItem = (value) => {
+  const getSearchValue = (value) => {
     setSearchValue(value);
   };
 
   return (
     <div>
-      <Banner handleGetItem={handleGetItem}></Banner>
+      <Banner getSearchValue={getSearchValue}></Banner>
       <DonationCards
         searchValue={searchValue}
         donationData={donationData}

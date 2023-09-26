@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getStoredDonationData } from "../../Utilities/localstorage";
 import DonationCard from "./DonationCard";
+import NotFound from "../../Components/NotFound/NotFound";
 
 const Donation = () => {
   const [donation, setDonation] = useState([]);
@@ -14,12 +15,13 @@ const Donation = () => {
       setNoData("No Donation Found");
     }
   }, []);
-  console.log(showMore);
 
   return (
     <div className='container mx-auto py-10 px-5 md:px-0'>
       {noData ? (
-        <p>{noData}</p>
+        <div className='mt-40'>
+          <NotFound msg={noData}></NotFound>
+        </div>
       ) : (
         <div>
           {showMore ? (
